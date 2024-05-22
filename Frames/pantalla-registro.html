@@ -3,65 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventex</title>
     <link rel="stylesheet" href="../Styles/Styles-registro.css">
+    <link rel="stylesheet" href="../Componentes/header-form.css">
+    <link rel="stylesheet" href="../Componentes/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Ventex</title>
 </head>
 <body>
     <header>
         <h1 class="ventexLogo">Ventex</h1>
     </header>
     <main>
-        <article class="container">
-            <section class="titleContainer">
-                <h1 class="screamTitle">Registrate!</h1>
-      
-            </section>
-            <section class="content">
-                <form action="../php-servicios/save_data/save-regristrer.php" method="post" enctype="multipart/form-data">
-                    <div id="continer_seller_table">
-                        <input type="hidden" name="value1" value="#">
-                        <input type="hidden" name="value2" value="#">
-                        <input type="hidden" name="value3" value="#">
-                        <input type="hidden" name="value4" value="#">
-                        <input type="hidden" name="value5" value="#">
-                        <input type="hidden" name="value6" value="#">
-                        <input type="hidden" name="value7" value="#">
-                    </div>
-                    <div class="photoContainer">
-                        <!-- <img src="../Product-Images/pulsera_f.jpg" alt="" > -->
-                        <img src="../Icons/perfilPic.png" alt="" class="defaultPhoto">
-                        <input type="file" name="userPhoto" id="userPhoto">
-                    </div>
-                    <div class="inputContainer">
-                        <input type="text" name="nombre" class="input" required>
-                        <label for="nombre" class="inputText"><pre> Nombre </pre></label>
-                    </div>
-                    <div class="inputContainer">
-                        <input type="email" name="correo" class="input" required>
-                        <label for="correo" class="inputText"><pre> Email </pre></label>
-                    </div>
-                    <div class="inputContainerSmall">
-                        <input type="number" name="telefono" class="input" required>
-                        <label for="correo" class="inputText"><pre> Celular </pre></label>
-                    </div>
-                    <div class="inputContainerSmall">
-                        <input type="date" name="fecha_nac" class="input" required>
-                        <label for="fecha_nac" class="inputText"><pre> Fecha Nacimiento </pre></label>
-                    </div>
-                    <div class="inputContainer">
-                        <input type="password" name="contrasena" id="contrasena" class="input" required>
-                        <label for="contraseña" class="inputText"> <pre> Contraseña </pre></label>
-                    </div>
-                    <div class="inputContainer">
-                        <input type="password" name="contrasemaC" id="contrasenaC" class="input" required>
-                        <label for="contraseñaC" class="inputText"><pre> Confirmar contraseña </pre></label>
-                    </div>
-                    <p id="mensaje"></p>
-                    <input type="submit" value="Registrarse" class="Registrarse" id="submitButton">
+        <section class="decor">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+        </section>
+
+        <section class="form">
+            <h1 class="form-title">Registrate!</h1>
+            <form action="../php-servicios/save_data/save-regristrer.php" method="post" enctype="multipart/form-data">
+                <div id="continer_seller_table">
+                    <input type="hidden" name="value1" value="#">
+                    <input type="hidden" name="value2" value="#">
+                    <input type="hidden" name="value3" value="#">
+                    <input type="hidden" name="value4" value="#">
+                    <input type="hidden" name="value5" value="#">
+                    <input type="hidden" name="value6" value="#">
+                    <input type="hidden" name="value7" value="#">
+                </div>
+                <div class="photoContainer">
+                    <input type="file" name="userPhoto" id="userPhoto" accept="image/*" onchange="previewImage(event, '#imgPreview')">
+                    <script>
+                        function previewImage(event, querySelector){
+                        const input = event.target;
+                        $imgPreview = document.querySelector(querySelector);
+    
+                        if(!input.files.length) return
+    
+                        file = input.files[0];
+    
+                        objectURL = URL.createObjectURL(file);
+    
+                        $imgPreview.src = objectURL;
+                        }
+                        </script>
+                </div>
+                <div class="inputContainer">
+                    <label for="nombre" class="inputText">Nombre</label>
+                    <input type="text" name="nombre" class="input" required>
+                </div>
+                <div class="inputContainer">
+                    <label for="correo" class="inputText">Email</label>
+                    <input type="email" name="correo" class="input" required>
+                </div>
+                <div class="inputContainerSmall">
+                    <label for="telefono" class="inputText">Celular</label>
+                    <input type="number" name="telefono" class="input" required>
+                </div>
+                <div class="inputContainerSmall">
+                    <label for="fecha_nac" class="inputText">Fecha Nacimiento</label>
+                    <input type="date" name="fecha_nac" class="input" required>
+                </div>
+                <div class="inputContainer">
+                    <label for="contrasena" class="inputText">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" class="input" required>
+                </div>
+                <div class="inputContainer">
+                    <label for="contraseñaC" class="inputText">Confirmar contraseña</label>
+                    <input type="password" name="contrasemaC" id="contrasenaC" class="input" required>
+                </div>
+                <div id="button-div">
+                    <!-- <p id="mensaje"></p> -->
+                    <input type="submit" value="Registrarse" class="submit" id="submitButton">
+                </div>
                 </form>
             </section>
-        </article>
-        
+            <section class="cont-img">
+                <img src="../Icons/perfilPic.png" class="imagen-usser" id="imgPreview" >
+            </section>
     </main>
     <script>
      function verificarContraseña() {
@@ -84,5 +104,28 @@ document.getElementById("contrasena").addEventListener("input", verificarContras
 document.getElementById("contrasenaC").addEventListener("input", verificarContraseña);
 
     </script>
+
+<footer>
+    <section class="con">
+        <section class="name-year">
+            <h1>2023-Ventex</h1>
+        </section>
+        <section class="logo-ventex">
+            <h1>Ventex</h1>
+        </section>
+        <section class="socialmedia-ventex">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok"></i></a>
+        </section>
+    </section>
+    <section class="aviso">
+        <span>Ventex no pide a través de SMS o de las redes sociales datos bancarios, tarjetas de crédito, clave NIP,
+            contraseñas o datos sensibles de cualquier tipo. 
+            <br>Si necesitas aclarar cualquier duda, puedes contactar con el Call Center en 800 225 5748.
+        </span>
+    </section>
+</footer>
+
 </body>
 </html>

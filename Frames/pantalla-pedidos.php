@@ -15,7 +15,8 @@ $result = $Conexion_usser_select->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventex</title>
     <link rel="stylesheet" href="../Styles/Styles-pedidos.css">
-    <link rel="stylesheet" href="../Componentes/header-v.css">
+    <link rel="stylesheet" href="../Componentes/header.css">
+    <link rel="stylesheet" href="../Componentes/footer.css">
     <link rel="stylesheet" href="../Componentes/extensibleSearchInput.css">
     <link rel="stylesheet" href="../Componentes/modalForm.css">
     <link rel="stylesheet" href="../Componentes/calculationModal.css">
@@ -55,36 +56,110 @@ $result = $Conexion_usser_select->query($sql);
 </head>
 
 <body>
-    <header class="main-container-header">
-        <nav>
-            <section class="c-logo">
-                <p class="logo">Ventex</p>
-            </section>
-            <ul class="h-options">
-                <li>
-                    <button class="butt-h">Inicio</button>
-                </li>
-                <li>
-                    <button class="butt-h">Categorías</button>
-                </li>
-                <li>
-                    <button class="butt-h">Planes</button>
-                </li>
-                <li>
-                    <button class="butt-h">Vender</button>
-                </li>
+<header>
+
+<?php
+require_once('../php-servicios/Conexion_db/conexion_usser_select.php');
+$cats = mysqli_query($Conexion_usser_select, "SELECT DISTINCT Nombre_Cat FROM categoria;");
+?>
+<section>
+    <p class="logo">Ventex</p>
+</section>
+<nav>
+    <ul class="menu">
+        <li><a href="pantalla-Inicio.php" class="headerOption">Inicio</a></li>
+        <li><a href="#" id="categorias" class="headerOption">Categorías</a>
+            <div class="invisible"></div>
+            <ul class="menuv">
+                <?php while ($cat = mysqli_fetch_array($cats)) { ?>
+                    <li class="ca">
+                        <a href="Pantalla-Subcategoria?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
+                            <div class="categorieSection">
+                                <p class="categorieOption"><?php echo $cat['Nombre_Cat']; ?></p>
+                            </div>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
-            <section class="">
-                <form action="" method="post">
-                    <input type="search" name="search-product" id="search-p">
-                </form>
-            </section>
-            <section class="profileContainer">
-                <button class="basket"> <img src="../Icons/bolsa-de-la-compra.png" alt="Image not found" class="basket-icon"></button>
-                <button class="profile"></button>
-            </section>
-        </nav>
-    </header>
+        </li>
+        <li><a href="" class="headerOption planHeaderButton">Planes</a></li>
+        <li><a href="" class="headerOption">Vender</a></li>
+    </ul>
+</nav>
+<section class="busqueda">
+    <form class="busquedaForm" action="../Frames/Pantalla-Busqueda.php" method="post" onsubmit="return enviarFormulario()">
+        <input type="search" placeholder="Buscar" name="busqueda" class="inputSearchHeader" require>
+        <button class="searchButtonHeader">
+            <img src="../Icons/lupaB.png" alt="" class="imageSearchHeader">
+        </button>
+    </form>
+</section>
+<section class="imgProfile">
+    <div></div>
+</section>
+
+<!--- MODAL VENDER ----------------------------------------------------------------------------------->
+
+<article class="sellModalContainer hidden">
+<section class="sellModalInformationContainer ">
+    <h1 class="titleModal">Ventex</h1>
+    <p class="infoModal">asasc sdsdsd sdsdsd sdsd sdsdssd ssd sdss</p>
+</section>
+<section class="sellModalPlansContainer ">
+    <button class="closePlansButto">x</button>
+    <div class="titlePlansSellerModalContainer">
+    <h1 class="titlePlansSellerModal">Planes</h1>
+    </div>
+    <section class="planSellerModalContainer ">
+
+    <div class="planContainer normal">
+        <div class="planNameContainer">
+            <p class="planName">Basico </p>
+            <p class="subTextPlanName">(Plan Mejorado)</p>
+        </div>
+        <p class="pricePlan"><span class="price">GRATIS</span></p>
+        <div class="benefitsPlan">
+            <ul class="planBenefitsList">
+            <li>publicación de productos</li>
+            <li>perfil basico con filtrado de productos</li>
+            </ul>
+        </div>
+        <button class="planButton basicButton">Continuar con plan gratuito</button>
+    </div>
+
+    <div class="crownContiner">
+        <img src="../Icons/corona-premium.png" alt="" class="crownPremium">
+        <div class="planContainer premium">
+        <form action="" method="post" class="formPremiumPlan">
+            <div class="planNameContainer">
+            <p class="planName premiumName">Premium </p>
+            <p class="subTextPlanName">(Plan Mejorado)</p>
+            </div>
+            <p class="pricePlan">$ <span class="price">20.00</span></p>
+            <div class="benefitsPlan">
+            <ul class="planBenefitsList">
+                <li>publicación de productos</li>
+                <li>perfil basico con filtrado de productos</li>
+                <li>Catalogos personalizados.</li>
+                <li>Registro de Pedidos</li>
+                <li>Registro de ventas</li>
+            </ul>
+            </div>
+            <button class="planButton premiumButton">
+            Obtener plan Premium
+            <img src="../Icons/cocodrilo-premium.png" alt="" class="cocoPremium">
+            </button>
+        </form>
+        </div>
+    </div>
+    </section>
+</section>
+</article>
+<div class="overlaySellModal hidden"></div>
+<script src="../Scripts/Script-plansModal.js"></script>
+<!---------------------------------------------------------------------------------------------------->
+
+</header>
     <main>
         <article class="container">
             <section class="table-header">
@@ -215,7 +290,28 @@ $result = $Conexion_usser_select->query($sql);
         <div class="formOverlay hidden"></div>
         <!---------------------------------------------------------------------------------------------------------------->
     </main>
-    <footer></footer>
+    <!-- Pie de página -->
+    <footer>
+        <section class="con">
+            <section class="name-year">
+                <h1>2023-Ventex</h1>
+            </section>
+            <section class="logo-ventex">
+                <h1>Ventex</h1>
+            </section>
+            <section class="socialmedia-ventex">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-tiktok"></i></a>
+            </section>
+        </section>
+        <section class="aviso">
+            <span>Ventex no pide a través de SMS o de las redes sociales datos bancarios, tarjetas de crédito, clave NIP,
+                contraseñas o datos sensibles de cualquier tipo. 
+                <br>Si necesitas aclarar cualquier duda, puedes contactar con el Call Center en 800 225 5748.
+            </span>
+        </section>
+    </footer>
     <script>
         document.addEventListener("DOMContentLoaded", getData);
 

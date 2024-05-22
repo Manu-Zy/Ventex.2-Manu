@@ -1,29 +1,25 @@
 * {
-  padding: 0%;
-  margin: 0%;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: "Hammersmith One", sans-serif;
 }
 html,
 body {
   height: 100%;
-  background-color: #f3e9dc;
+  background-color: #EBEBEB;
 }
 main {
   width: 100%;
-  height: auto;
-  float: left;
-  margin-top: 15vh;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 .tit_process {
   margin: auto;
   font-size: 2vw;
-}
-h1 {
-  text-align: center;
-  color: white;
-  margin-left: 12vw;
-  font-size: 50px;
 }
 
 .modal {
@@ -36,7 +32,10 @@ h1 {
   border-radius: 26px;
   max-width: 450px;
   margin: auto;
-  margin-top: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .form {
@@ -183,18 +182,11 @@ h1 {
 .select {
   width: 33.3333%;
   height: 100%;
-  float: left;
   background-color: #c5a68c;
   border-left: 1px solid gray;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-footer {
-  width: 100%;
-  height: 20vh;
-  float: left;
-  margin-top: 5vh;
-  background-color: rgb(104, 134, 104);
 }
 #aviso {
   width: 100%;
@@ -335,37 +327,3 @@ ul{
     transition: .3s;
     color: white;
 }
-/*-Footer------------------------------------------------------------------------------*/
-/* footer{
-    width: 100%;
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    background-color: #748553;
-    margin-top: 5vh;
-}
-.logo-f{
-    font-family: "Hammersmith One", sans-serif;
-    font-weight: 1000;
-    font-size:3em;
-    margin-left: 3vw;
-    color: white;
-} */
-/*
- <header class="main-container-header">
-        <section class="c-logo"><p class="logo">Ventex</p></section>
-        <section class="h-options">
-            <button class="butt-h">Inicio</button>
-            <button class="butt-h">Categorías</button>
-            <button class="butt-h">Planes</button>
-            <button class="butt-h">Vender</button>
-            <form action="" method="post">
-                <input type="search" name="search-product" id="search-p">
-            </form>
-        </section>
-        <section class="profileContainer">
-            <button class="basket"> <img src="bolsa-de-la-compra.png" alt=""></button>
-            <button class="profile"></button>
-        </section>
-    </header>
-*/

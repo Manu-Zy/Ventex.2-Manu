@@ -22,7 +22,7 @@ table, tr, th, td{
     margin-top: 5vh;
 }
 .table-header{
-    background-color: rgb(119, 123, 119);
+    background-color: #182722;
     height: 8vh;
     width: 100%;
     display: flex;

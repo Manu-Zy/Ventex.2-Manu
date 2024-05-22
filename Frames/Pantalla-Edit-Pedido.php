@@ -170,7 +170,7 @@ mysqli_stmt_close($stmt);
         </section>
         <!-- Sección lateral 2 (formulario para actualizar pedido) -->
         <section class="form">
-            <h1 class="form-title">Editar Producto</h1>
+            <h1 class="form-title">Editar Pedido</h1>
             <form action="../php-servicios/save_data/save_actulizacion_de_pedidos.php" method="post" id="form_product">
                 <input type="hidden" name="id_Pedidos_update" value="<?php echo $ID_pedido ?>"><!-- aqui va ir lo de sesion -->
                 <!-- Inputs para actualizar datos de redes sociales -->

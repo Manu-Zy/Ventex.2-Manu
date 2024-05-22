@@ -16,6 +16,7 @@ $diseñador = mysqli_fetch_array($busque_diseno_usser);
     <title>Ventex</title>
     <link rel="stylesheet" href="./Styles-Product-Box/product-box-1.css" id="style-product-box">
     <link rel="stylesheet" href="./Styles-Frames/Styles-catalogo-1.css" id="style-catalog">
+    <link rel="stylesheet" href="../Catalog/Styles-Frames/Preview-catalogo-1.css">
     <link rel="stylesheet" href="../Componentes/editCatalogModal.css">
     <link rel="stylesheet" href="./Queries-responsive/queries-catalogo-1.css" id="style-catalog">
     <!-- <script src="catalog-styles-election.js"></script>
@@ -54,9 +55,97 @@ $diseñador = mysqli_fetch_array($busque_diseno_usser);
     <main id="sectionProductsContainer">
     </main>
     <footer></footer>
-
-    <article class="editCatalogModalContainer hidden"></article>
+<!-- Edit Modal ------------------------------------------------------------------------------------------------>
+    <article class="editCatalogModalContainer ">
+        <section class="editCatalogOptionsContainer">
+            <div class="TitleModalContainer">
+                <h1 class="titleModal">Ventex</h1>
+                <h1 class="subitleModal">editar catalogo</h1>
+            </div>
+            <div class="editOptionsContainer">
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel">Color Header</label>
+                    <input type="color" name="headerColor" value="#B3C372" id="" class="inputColor">
+                </div>
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel">Color Categorias</label>
+                    <input type="color" name="headerColor" value="#647A3F" id="" class="inputColor">
+                </div>
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel radioLabel">Diseño caja producto</label>
+                    <input type="radio" name="" id="" class="radioButton">
+                    <input type="radio" name="" id="" class="radioButton">
+                </div>
+            </div>
+        </section>
+        <section class="rigthCatalogPreviewAllContainer">
+            <section class="selectStyleCatalogContainer">
+                <div class="actionTitleContainer">
+                    <h1 class="actionName">Elige diseño del catalogo</h1>
+                </div>
+                <div class="selectStyleOptionsContainer">
+                <input type="radio" name="" id="" class="radioButton">
+                <input type="radio" name="" id="" class="radioButton">
+                </div>
+            </section>
+            <section class="catalogPreviewContainer">
+<!-- CATALOG PREVIEW SCREEN --------------------------------------------------------->
+                <div class="catalogPreviewScreen">
+                    <div class="headerPreview">
+                        <div class="searchPreview"></div>
+                    </div>
+                    <div class="categoriesPreview">
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                    </div>
+                    <div class="productsAllContainerPreview">
+                        <div class="titlePreviewContainer">
+                            <h1 class="titleCategoryPreview"> Categoria de productos</h1>
+                        </div>
+                        <div class="previewProductsContainer">
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                    </div>
+                </div>
+<!----------------------------------------------------------------------------------->
+            </section>
+            <section class="buttonsEditCatalogContainer">
+                <button class="buttonEditCatalog cancelButton">Cancelar</button>
+                <button class="buttonEditCatalog updateChangesButton">Actualizar Cambios</button>
+            </section>
+        </section>
+    </article>
     <div class="editCatalogOverlay hidden"></div>
+<!-- Edit Modal ------------------------------------------------------------------------------------------------>
 
     <form action="">
         <input type="hidden" name="id_usser" value="<?php echo $mywher ?>" id="id_usser">

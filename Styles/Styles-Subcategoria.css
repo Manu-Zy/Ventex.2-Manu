@@ -161,6 +161,7 @@ main{
     margin: 0.5vw;
     position: relative;
     display: flex;
+    overflow: hidden;
     justify-content: center;
     transition: .3s;
     border: none;

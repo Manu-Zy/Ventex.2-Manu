@@ -1,11 +1,14 @@
 .editCatalogModalContainer{
-    width: 70vw;
-    height: 70vh;
+    width: 65vw;
+    height: 80vh;
     position: fixed;
+    display: flex;
     background-color: white;
-    top: 15vh;
-    left: 15vw;
+    top: 10vh;
+    left: 17.5vw;
     z-index: 10;
+    border: 1px solid gray;
+    font-family: "Hammersmith One", sans-serif;
 }
 .editCatalogOverlay{
     width: 100%;
@@ -15,6 +18,143 @@
     position: fixed;
     z-index: 6;
     top: 0;
+}
+.editCatalogOptionsContainer{
+    width: 25vw;
+    height: 100%;
+}
+.TitleModalContainer{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.titleModal{
+    font-weight: 100;
+    font-size: 10vh;
+    color: gray;
+    text-align: center;
+    width: 70%;
+    height: 0%;
+}
+.subitleModal{
+    font-weight: 100;
+    font-size: 3vh;
+    color: gray;
+}
+.editOptionsContainer{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-content: flex-start;
+    margin-top: 10vh;
+}
+.changeContainer{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.inputLabel{
+    font-weight: 100;
+    font-size: 2vh;
+    color: gray;
+}
+.inputColor{
+    width: 10vw;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: 1.5vw;
+}
+.radioLabel{
+    margin-right: 2vw;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+/*   SELECT STYLE CATALOG CONTAINER                                                                               */
+/*----------------------------------------------------------------------------------------------------------------*/
+.selectStyleCatalogContainer{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.actionTitleContainer{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+}
+.selectStyleOptionsContainer{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actionName{
+    font-weight: 100;
+    font-size: 4vh;
+    color: gray;
+}
+.radioButton{
+    margin: 2.5vh;
+    width: 3vh;
+    height: 3vh;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+/*   CATALOG PREVIEW CONTAINER                                                                                    */
+/*----------------------------------------------------------------------------------------------------------------*/
+.catalogPreviewContainer{
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+}
+.catalogPreviewScreen{
+    width: 35vw;
+    height: 35vh;
+    border: 1px solid rgb(193, 193, 193);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.buttonsEditCatalogContainer{
+    width: 37.5vw;
+    height: 15vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.buttonEditCatalog{
+    width: 30vh;
+    height: 7vh;
+    margin-left: 1vh;
+}
+.cancelButton{
+    background: none;
+    border: 1px solid rgb(193, 193, 193);
+    color: rgb(151, 151, 151);
+}
+.updateChangesButton{
+    background-color: rgb(3, 86, 0);
+    border: none;
+    color: white;
+}
+.updateChangesButton:hover{
+
+    background-color: rgb(5, 143, 0);
+}
+.cancelButton:hover{
+    background-color: rgb(237, 237, 237);
 }
 .hidden{
     display: none;

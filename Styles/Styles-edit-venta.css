@@ -2,31 +2,31 @@
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-html,body {
+  }
+  
+  html,body {
     height: 100%;
     width: 100%;
     background-color: #EBEBEB;
-}
-
-main {
+  }
+  
+  main {
     width: 100%;
-    height: 100%;
+    height: 110vh;
     display: flex;
     align-items: center;
     align-items: center;
-}
-
-.decor{
+  }
+  
+  .decor{
     width: 50vw;
     height: 100%;
     position: relative;
     overflow: hidden;
     background-color: #182722;
-}
-
-.circle1 {
+  }
+  
+  .circle1 {
     width: 30vw;
     height: 30vw;
     background: linear-gradient(45deg, #182722, #00E091);
@@ -45,7 +45,7 @@ main {
     bottom: -80px; 
     left: -40px;
   }
-
+  
   .circle3 {
     width: 15vw;
     height: 15vw;
@@ -73,70 +73,71 @@ main {
     bottom: 5%;
     transform: rotate(-45deg);
   }
-
-.form {
-    width: 30%;
+  
+  .form {
+    width: 40%;
     height: 100%;
     border-radius: 20px;
     position: relative;
     left: -30px;
     background-color: #EBEBEB;
     box-shadow: -15px 10px 28px -2px rgba(158, 158, 158, 0.367);
-}
+  }
   
-.form > form{
+  .form > form{
     width: 100%;
     height: 85%;
     padding: 10px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     padding: 2rem;
     gap: 1.2rem;
- }
-
-.form-title{
+  }
+  
+  .form-title{
     padding: 10px;
     font-size: 3rem;
     color: #182722;
- }
-
- .form input {
+  }
+  
+  .form input {
     width: 20vw;
-    height: 4vh;
+    height: 6vh;
     font-size: 1.3rem;
     border-radius: 5px;
     background-color: #dedede7a;
     padding: 5px;
-    color: #00E091;
+    color: #676b6a;
     border: 1px solid #182722;
   }
-
-.form input:focus-visible {
-    outline: 1px solid #00E091;
-}
   
-.form input::placeholder {
+  .form input:focus-visible {
+    outline: 1px solid #00E091;
+  }
+  
+  .form input::placeholder {
     color: #00E091;
-}
-
-.select-container {
+  }
+  
+  .select-container {
     width: 20vw;
-    height: 5vh;
+    height: 6vh;
     font-size: 1.3rem;
     border-radius: 5px;
     background-color: #dedede7a;
     padding: 5px;
     border: 1px solid #182722;
-}
-
-label {
+  }
+  
+  label {
     color: #182722;
     font-size: 1.5rem;
     display: block;
     padding-bottom: 4px;
-}
-
-.submit{
+  }
+  
+  .submit{
     width: 14vw;
     padding: 3px;
     font-size: 1.5rem;
@@ -145,22 +146,22 @@ label {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background-color: #182722;
     color: #00E091;
-}
-
-.submit:hover{
+  }
+  
+  .submit:hover{
     transform: scale(0.95);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.cont-img{
+  }
+  
+  .cont-img{
     width: 40vh;
     height: 40vh;
     position: relative;
     right: 3rem;
     background-color: grey;
-}
-
-.cont-img img{
+  }
+  
+  .cont-img img{
     width: 100%;
     height: 100%;
-}
+  }

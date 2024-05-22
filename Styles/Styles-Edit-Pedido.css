@@ -12,7 +12,7 @@
   
   main {
     width: 100%;
-    height: 110vh;
+    height: 120vh;
     display: flex;
     align-items: center;
     align-items: center;
@@ -84,7 +84,7 @@
     box-shadow: -15px 10px 28px -2px rgba(158, 158, 158, 0.367);
   }
   
-  form{
+  .form > form{
     width: 100%;
     height: 85%;
     padding: 10px;

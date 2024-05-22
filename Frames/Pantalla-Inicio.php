@@ -226,23 +226,6 @@ function mostrarProductosVistosRecientemente($Conexion_usser_select) {
           }).catch(err => console.log(err));
       }
     </script>
-  </main>
-  <footer>
-    <section class="name-year">
-      <h1>2023-Ventex</h1>
-    </section>
-    <section class="logo-ventex">
-      <h1>Ventex</h1>
-    </section>
-    <section class="socialmedia-ventex">
-      <a href=""><i class="fa-brands fa-facebook"></i></a>
-      <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-      <a href=""><i class="fa-brands fa-tiktok"></i></a>
-    </section>
-  </footer>
-
-<<<<<<< Updated upstream
-=======
     </main>
     <footer>
         <section class="con">
@@ -265,7 +248,6 @@ function mostrarProductosVistosRecientemente($Conexion_usser_select) {
             </span>
         </section>
     </footer>
->>>>>>> Stashed changes
 </body>
 
 </html>
