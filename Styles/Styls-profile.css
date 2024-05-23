@@ -24,15 +24,15 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 3rem;
  }
  .parent_Child{
-    width: 98vh;
-    
+    width: 105vh;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
     gap: 2rem;
-    padding: 3rem;
     padding-top: 0;
+    margin-bottom: 5vh;
 
  }
  .parent_FirstChild{
@@ -42,7 +42,6 @@ body{
     justify-content: center;
     align-items: center;
     border-top-left-radius: 20px;
-    gap: 1rem;
  }
  .edit{
    text-decoration: none;
@@ -54,8 +53,7 @@ body{
    border-radius: 20px;
    display: flex;
    justify-content: center;
-   align-items: center;
-   align-content: center   ;
+   align-content: flex-start   ;
    background-color: white;
    align-items: flex-start;
    flex-wrap: wrap;
@@ -71,7 +69,7 @@ body{
    justify-content: center;
    align-content: center;
    position: relative;
-   top: 5vh;
+   top: 8vh;
    z-index: 0;
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
@@ -236,7 +234,7 @@ td {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   align-items: center;
+   align-content: center;
    position: relative;
    margin-bottom: 2vh;
    position: relative;
@@ -245,7 +243,7 @@ td {
    width: 20vh;
    height: 6vh;
    position: absolute;
-   right: 3vh;
+   right: 6vh;
    background: none;
    border: 1px solid rgb(153, 153, 153);
    color: gray;
@@ -375,7 +373,7 @@ aside nav ul {
   /*Manu Changes ---------------------------------------------*/
 
   #resultados{
-   width:95%;
+   width: 90%;
    height: auto;
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
@@ -418,6 +416,5 @@ aside nav ul li a {
    left: 0;
    width: 100%;
    height: 100%;
-   background: rgba(0, 0, 0, 0.5);
    z-index: 10;
 }

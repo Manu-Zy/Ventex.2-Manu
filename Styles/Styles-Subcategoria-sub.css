@@ -1,0 +1,84 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+html,body{
+    min-height: 100%;
+    max-width: 100%;
+    background-color: #e4e4e4;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    align-content: flex-start;
+    margin-bottom: 18vh;
+}
+
+#titulo_C{
+    width: 20vw;
+    height: 15vh;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+}
+
+.pr_productos_sub{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.more_subs{
+    width: 100%;
+    height: 15vh;
+    background-color: cadetblue;
+}
+
+.subcategoriesSection{
+    width: 100%;
+    height: 33vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.subcategoryButton{
+    width: 8vw;
+    height: 10vw;
+    border: none;
+    background: none;
+    transform: .3s;
+    cursor: pointer;
+    transition: .3s;
+    gap: 5vw;
+    margin: 0.7vw;
+}
+.subcategoryButton:hover{
+
+    transform: scale(1.03);
+}
+.subcategoryPhotoContainer{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 100%;
+    background-color: #2b3617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.subcategoryPhoto{
+    width: 100%;
+    height: 100%;
+}
+.subcategoryNameContainer{
+    width: 100%;
+    min-height: 2vw;
+}

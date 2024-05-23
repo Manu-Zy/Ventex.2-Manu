@@ -1,0 +1,15 @@
+.productBoxPreview{
+    width: 5vw;
+    height: 6.5vw;
+    margin: 0.5%;
+    border: 0.4px solid gray;
+    background-color: white;
+    border-radius: 1px;
+    display: flex;
+    align-items: flex-start;
+}
+.productImagePreview{
+    width: 120%;
+    height: 80%;
+    border-bottom: 0.4px solid gray;
+}

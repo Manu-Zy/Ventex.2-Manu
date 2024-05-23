@@ -90,9 +90,9 @@ main {
 }
 
 .productos-Recomendados {
-  width: 100%;
+  width: 80%;
   padding: 1rem;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
 }
 
 .productos-Recomendados h1 {

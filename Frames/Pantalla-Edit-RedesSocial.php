@@ -66,7 +66,7 @@ mysqli_stmt_close($stmt);
                 <ul class="menuv">
                     <?php while ($cat = mysqli_fetch_array($cats)) { ?>
                         <li class="ca">
-                            <a href="Pantalla-Subcategoria?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
+                            <a href="Pantalla-Subcategoria.php?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
                                 <div class="categorieSection">
                                     <p class="categorieOption"><?php echo $cat['Nombre_Cat']; ?></p>
                                 </div>
@@ -96,7 +96,7 @@ mysqli_stmt_close($stmt);
     <article class="sellModalContainer hidden">
     <section class="sellModalInformationContainer ">
         <h1 class="titleModal">Ventex</h1>
-        <p class="infoModal">asasc sdsdsd sdsdsd sdsd sdsdssd ssd sdss</p>
+        <p class="infoModal">Con Ventex, los emprendedores estudiantiles pueden gestionar y promocionar sus productos de manera eficiente. Compra un plan y desbloquea todo el potencial de tu negocio.</p>
     </section>
     <section class="sellModalPlansContainer ">
         <button class="closePlansButto">x</button>

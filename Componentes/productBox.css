@@ -16,7 +16,7 @@
     box-shadow: 0 0 1vw 0.3vw rgb(206, 206, 206);
 }
 .productPhoto{
-    width: 20vw;
+    width: 19vw;
     height: 20vw;
     border-bottom: 0.1vw solid rgb(204, 204, 204);
     display: flex;

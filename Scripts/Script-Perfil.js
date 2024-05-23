@@ -12,7 +12,6 @@ const closeOptionsList = () => {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('hasas');
     optionsPoints.forEach((but, index) => {
         console.log('chales');
         but.addEventListener('click', () => {

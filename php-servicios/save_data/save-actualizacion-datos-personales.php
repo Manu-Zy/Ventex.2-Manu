@@ -8,7 +8,10 @@ if (!isset($_POST['nombre'], $_POST['correo'], $_POST['fecha'], $_POST['telefono
     //header('Location: ../../Frames/Pantalla-Edit-Info-Personal.php');
     exit();
 }
-if (!isset($_FILES["Imagen"])) {
+$archivo = null;
+
+// Verificar si se ha enviado un archivo
+if (isset($_FILES["Imagen"]) && $_FILES["Imagen"]["size"] > 0) {
     $archivo = basename($_FILES["Imagen"]["name"]);
     $targetDirectory = "../../Imgens-Pefil/";  // Ruta relativa al directorio del script
     $targetFile = $targetDirectory . $archivo;
@@ -24,16 +27,17 @@ if (!isset($_FILES["Imagen"])) {
         echo "El archivo no es una imagen válida.";
     }
 } else {
-    $archivo = mysqli_real_escape_string($Conexion_usser_changes,$_POST['imagenanterior']);
+    // Si no se ha subido un archivo, utiliza el valor anterior
+    $archivo = mysqli_real_escape_string($Conexion_usser_changes, $_POST['imagenanterior']);
 }
+
 // Recoger los datos del formulario
 $idup = $_SESSION['id'];
-// $idup = 9;
 $Nom = mysqli_real_escape_string($Conexion_usser_changes,$_POST['nombre']);
 $correo = mysqli_real_escape_string($Conexion_usser_changes,$_POST['correo']);
 $fecha = mysqli_real_escape_string($Conexion_usser_changes,$_POST['fecha']);
 $telefono = mysqli_real_escape_string($Conexion_usser_changes,$_POST['telefono']);
-
+echo$archivo;
 
 // Hacer la sentencia de actualización (UPDATE) con sentencia preparada
 $sql = "UPDATE usuarioregistrado SET Nombre_Us=?, Correo=?, Fecha_Nac=?, telefono=?, Imagen=? WHERE ID_Usuario = $idup";

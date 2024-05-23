@@ -47,6 +47,9 @@ mysqli_stmt_close($stmt);
     <link rel="stylesheet" href="../Styles/Styls-profile.css">
     <link rel="stylesheet" href="../Componentes/extensibleSearchInput.css">
     <link rel="stylesheet" href="../Componentes/productBoxSmallerWithPoints.css">
+    <link rel="stylesheet" href="../Styles/Preview-catalogo-1.css" id="previewCatalog">
+    <link rel="stylesheet" href="../Styles/preview-product-box-1.css" id="previewProductBox">
+    <link rel="stylesheet" href="../Componentes/editCatalogModal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -86,7 +89,7 @@ mysqli_stmt_close($stmt);
                     <ul class="menuv">
                         <?php while ($cat = mysqli_fetch_array($cats)) { ?>
                             <li class="ca">
-                                <a href="Pantalla-Subcategoria?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
+                                <a href="Pantalla-Subcategoria.php?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
                                     <div class="categorieSection">
                                         <p class="categorieOption"><?php echo $cat['Nombre_Cat']; ?></p>
                                     </div>
@@ -116,7 +119,7 @@ mysqli_stmt_close($stmt);
         <article class="sellModalContainer hidden">
             <section class="sellModalInformationContainer ">
                 <h1 class="titleModal">Ventex</h1>
-                <p class="infoModal">asasc sdsdsd sdsdsd sdsd sdsdssd ssd sdss</p>
+                <p class="infoModal">Con Ventex, los emprendedores estudiantiles pueden gestionar y promocionar sus productos de manera eficiente. Compra un plan y desbloquea todo el potencial de tu negocio.</p>
             </section>
             <section class="sellModalPlansContainer ">
                 <button class="closePlansButto">x</button>
@@ -225,96 +228,96 @@ mysqli_stmt_close($stmt);
                 </section>
 
                 <section class="parent_Child">
-                    <section class="parent_LastChild">
-                        <section class="group">
-                            <div class="searchSection">
-                                <div class="searchContainer">
-                                    <input type="search" name="searchP" id="searchP" placeholder="Buscar" required onkeyup="getData()">
-                                    <button class="searchButton"><img src="../Icons/lupaB.png" alt="" class="searchIcon"></button>
-                                </div>
-                                <form action="../Frames/Pantalla-AddP.php" method="post">
-                                    <button class="addProductButton" type="submit">Agregar Producto</button>
-                                </form>
-
+                <section class="parent_LastChild">
+                    <section class="group">
+                        <div class="searchSection">
+                            <div class="searchContainer">
+                                <input type="search" name="searchP" id="searchP" placeholder="Buscar" required onkeyup="getData()">
+                                <button class="searchButton"><img src="../Icons/lupaB.png" alt="" class="searchIcon"></button>
                             </div>
-                            <script>
-                                document.addEventListener("DOMContentLoaded", getData);
+                            <form action="../Frames/Pantalla-AddP.php" method="post">
+                                <button class="addProductButton" type="submit">Agregar Producto</button>
+                            </form>
 
-                                function getData() {
-                                    let input = document.getElementById("searchP").value;
-                                    let content = document.getElementById("resultados");
-                                    let url = "../php-servicios/load_data/load-info-pantalla-perfil.php";
-                                    let formData = new FormData();
-                                    formData.append('searchP', input);
+                        </div>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", getData);
 
-                                    fetch(url, {
-                                            method: "POST",
-                                            body: formData
-                                        }).then(response => response.text())
-                                        .then(data => {
-                                            // console.log(data);
-                                            content.innerHTML = data;
-                                            asignarEventos()
-                                        }).catch(err => console.log(err));
-                                }
+                            function getData() {
+                                let input = document.getElementById("searchP").value;
+                                let content = document.getElementById("resultados");
+                                let url = "../php-servicios/load_data/load-info-pantalla-perfil.php";
+                                let formData = new FormData();
+                                formData.append('searchP', input);
 
-                                function asignarEventos() {
+                                fetch(url, {
+                                        method: "POST",
+                                        body: formData
+                                    }).then(response => response.text())
+                                    .then(data => {
+                                        content.innerHTML = data;
+                                        asignarEventos();
+                                    }).catch(err => console.log(err));
+                            }
 
-                                    const pointsButtons = document.querySelectorAll('.pointsButton');
-                                    const optionsLists = document.querySelectorAll('.optionsPoints');
-                                    const invisibleOverlay = document.createElement('div');
-                                    invisibleOverlay.classList.add('invisibleOverlay', 'hidden');
-                                    document.body.appendChild(invisibleOverlay);
+                            function asignarEventos() {
+                                const optionsButton = document.querySelectorAll('.pointsButton');
+                                const optionsList = document.querySelectorAll('.optionsPoints');
+                                const invisibleOverlay = document.querySelector('.invisibleOverlay');
 
-                                    function showOptions(index) {
-                                        optionsLists[index].classList.remove('hidden');
-                                        invisibleOverlay.classList.remove('hidden');
-                                    }
-
-                                    function hideOptions() {
-                                        optionsLists.forEach(list => {
-                                            list.classList.add('hidden');
+                                optionsButton.forEach((but, index) => {
+                                    but.addEventListener('click', () => {
+                                        optionsList.forEach((list, i) => {
+                                            if (i !== index) {
+                                                list.classList.add('hidden');
+                                            }
                                         });
-                                        invisibleOverlay.classList.add('hidden');
-                                    }
-
-                                    pointsButtons.forEach((button, index) => {
-                                        button.addEventListener('click', () => {
-                                            showOptions(index);
-                                        });
+                                        optionsList[index].classList.toggle('hidden');
+                                        invisibleOverlay.classList.toggle('hidden');
                                     });
+                                });
 
-                                    invisibleOverlay.addEventListener('click', hideOptions);
-                                }
-                            </script>
-                            <div id="resultados"></div>
-                        </section>
+                                invisibleOverlay.addEventListener('click', () => {
+                                    optionsList.forEach(list => list.classList.add('hidden'));
+                                    invisibleOverlay.classList.add('hidden');
+                                });
+                            }
+                        </script>
+                        <div id="resultados"></div>
                     </section>
                 </section>
-
+            </section>
             </section>
             <aside>
                 <nav>
                     <ul>
                         <li><a href="../Frames/pantalla-pedidos.php">Pedidos</a></li>
                         <li><a href="../Frames/Pantalla-Reportes_Ventas.php">Reportes</a></li>
-                        <li><a href="#">Catálogo</a></li>
+                        <li><a href="#" class="catalogo">Catálogo</a></li>
                     </ul>
                 </nav>
             </aside>
     </main>
 
     <footer>
-        <section class="name-year">
-            <h1>2023-Ventex</h1>
+        <section class="con">
+            <section class="name-year">
+                <h1>2023-Ventex</h1>
+            </section>
+            <section class="logo-ventex">
+                <h1>Ventex</h1>
+            </section>
+            <section class="socialmedia-ventex">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-tiktok"></i></a>
+            </section>
         </section>
-        <section class="logo-ventex">
-            <h1>Ventex</h1>
-        </section>
-        <section class="socialmedia-ventex">
-            <a href=""><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-tiktok"></i></a>
+        <section class="aviso">
+            <span>Ventex no pide a través de SMS o de las redes sociales datos bancarios, tarjetas de crédito, clave NIP,
+                contraseñas o datos sensibles de cualquier tipo. 
+                <br>Si necesitas aclarar cualquier duda, puedes contactar con el Call Center en 800 225 5748.
+            </span>
         </section>
     </footer>
 
@@ -323,6 +326,110 @@ mysqli_stmt_close($stmt);
 
     <script src="../Scripts/Script-Perfil.js"></script>
     <!----------------------------------------------------------------------->
+
+
+    <!-- Edit Modal ------------------------------------------------------------------------------------------------>
+    <article class="editCatalogModalContainer hidden">
+        <section class="editCatalogOptionsContainer">
+            <div class="TitleModalContainer">
+                <h1 class="titleModal">Ventex</h1>
+                <h1 class="subitleModal">editar catalogo</h1>
+            </div>
+            <div class="editOptionsContainer">
+                <form action="../php-servicios/save_data/save-styles-catalogo.php" method="post" id="form_changes">
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel">Color Header</label>
+                    <input type="color" name="headerColor" value="#B3C372" id="headerColor" class="inputColor">
+                </div>
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel">Color Categorias</label>
+                    <input type="color" name="CategoryColor" value="#647A3F" id="categoriesColor" class="inputColor">
+                </div>
+                <div class="changeContainer">
+                    <label for="headerColor" class="inputLabel radioLabel">Diseño caja producto</label>
+                    <input type="radio" name="productBoxPreviewStyle" id="" value="1" class="radioButton" checked>
+                    <input type="radio" name="productBoxPreviewStyle" id="" value="2" class="radioButton">
+                </div>
+                
+            </div>
+        </section>
+        <section class="rigthCatalogPreviewAllContainer">
+            <section class="selectStyleCatalogContainer">
+                <div class="actionTitleContainer">
+                    <h1 class="actionName">Elige diseño del catalogo</h1>
+                </div>
+                <div class="selectStyleOptionsContainer">
+                <input type="radio" name="catalogStyle" id="" value="1" class="radioButton" checked>
+                <input type="radio" name="catalogStyle" id="" value="2" class="radioButton">
+                </div>
+                </form>
+            </section>
+            <section class="catalogPreviewContainer">
+<!-- CATALOG PREVIEW SCREEN --------------------------------------------------------->
+                <div class="catalogPreviewScreen">
+                    <div class="headerPreview">
+                        <div class="searchPreview"></div>
+                    </div>
+                    <div class="categoriesPreview">
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                        <button class="categoryButtonPreview"></button>
+                    </div>
+                    <div class="productsAllContainerPreview">
+                        <div class="titlePreviewContainer">
+                            <h1 class="titleCategoryPreview"> Categoria de productos</h1>
+                        </div>
+                        <div class="previewProductsContainer">
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                            <div class="productBoxPreview">
+                                <div class="productImagePreview"></div>
+                            </div>
+                    </div>
+                </div>
+<!----------------------------------------------------------------------------------->
+            </section>
+            <section class="buttonsEditCatalogContainer">
+                <button class="buttonEditCatalog cancelButton">Cancelar</button>
+                <button id="botonEnviar" class="buttonEditCatalog updateChangesButton">Actualizar Cambios</button>
+            </section>
+        </section>
+    </article>
+    <script>
+        document.getElementById('botonEnviar').addEventListener('click', function() {
+            document.getElementById('form_changes').submit();
+        });
+    </script>
+    <div class="editCatalogOverlay hidden"></div>
+
+    <script src="../Scripts/catalog-editCatalog.js"></script>
+<!---------------------------------------------------------------------------------------------------------->
 </body>
 
 </html>

@@ -7,45 +7,117 @@ $recibir_datos = isset($_POST['busqueda']) ? $_POST['busqueda'] : '';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../Componentes/header-v.css" />
+  <link rel="stylesheet" href="../Componentes/header.css" />
   <link rel="stylesheet" href="../Styles/Styles-Busqueda.css" />
   <link rel="stylesheet" href="../Componentes/productBox.css" />
   <title>Document</title>
 </head>
 
 <body>
-  <header class="main-container-header">
-    <nav>
-      <section class="c-logo">
-        <p class="logo">Ventex</p>
-      </section>
-      <ul class="h-options">
-        <li>
-          <button class="butt-h">Inicio</button>
+<header>
+
+<?php
+  require_once('../php-servicios/Conexion_db/conexion_usser_select.php');
+  $cats = mysqli_query($Conexion_usser_select, "SELECT DISTINCT Nombre_Cat FROM categoria;");
+?>
+<section>
+    <p class="logo">Ventex</p>
+</section>
+<nav>
+    <ul class="menu">
+        <li><a href="../Frames/Pantalla-Inicio.php" class="headerOption">Inicio</a></li>
+        <li><a href="#" id="categorias" class="headerOption">Categorías</a>
+            <div class="invisible"></div>
+            <ul class="menuv">
+                <?php while ($cat = mysqli_fetch_array($cats)) { ?>
+                    <li class="ca">
+                        <a href="Pantalla-Subcategoria.php?categoria=<?php echo $cat['Nombre_Cat']; ?>" name="" class="linkCategoriesOption">
+                            <div class="categorieSection">
+                                <p class="categorieOption"><?php echo $cat['Nombre_Cat']; ?></p>
+                            </div>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
         </li>
-        <li>
-          <button class="butt-h">Categorías</button>
-        </li>
-        <li>
-          <button class="butt-h">Planes</button>
-        </li>
-        <li>
-          <button class="butt-h">Vender</button>
-        </li>
-      </ul>
-      <section class="">
-        <form action="" method="post">
-          <input type="search" name="search-product" id="search-p" onkeyup="getData()" value="<?php echo $recibir_datos ?>"/>
-        </form>
-      </section>
-      <section class="profileContainer">
-        <button class="basket">
-          <img src="../Icons/bolsa-de-la-compra.png" alt="Image not found" class="basket-icon" />
+        <li><a href="" class="headerOption planHeaderButton">Planes</a></li>
+        <li><a href="" class="headerOption">Vender</a></li>
+    </ul>
+</nav>
+<section class="busqueda">
+    <form class="busquedaForm" action="../Frames/Pantalla-Busqueda.php" method="post" onsubmit="return enviarFormulario()">
+        <input type="search" name="search-product" id="search-p" class="inputSearchHeader" onkeyup="getData()" value="<?php echo $recibir_datos ?>"/>
+        <button class="searchButtonHeader">
+            <img src="../Icons/lupaB.png" alt="" class="imageSearchHeader">
         </button>
-        <button class="profile"></button>
-      </section>
-    </nav>
-  </header>
+    </form>
+</section>
+<section class="imgProfile">
+    <div></div>
+</section>
+
+<!--- MODAL VENDER ----------------------------------------------------------------------------------->
+
+<article class="sellModalContainer hidden">
+  <section class="sellModalInformationContainer ">
+    <h1 class="titleModal">Ventex</h1>
+    <p class="infoModal">Con Ventex, los emprendedores estudiantiles pueden gestionar y promocionar sus productos de manera eficiente. Compra un plan y desbloquea todo el potencial de tu negocio.</p>
+  </section>
+  <section class="sellModalPlansContainer ">
+    <button class="closePlansButto">x</button>
+    <div class="titlePlansSellerModalContainer">
+      <h1 class="titlePlansSellerModal">Planes</h1>
+    </div>
+    <section class="planSellerModalContainer ">
+
+      <div class="planContainer normal">
+          <div class="planNameContainer">
+              <p class="planName">Basico </p>
+              <p class="subTextPlanName">(Plan Mejorado)</p>
+          </div>
+          <p class="pricePlan"><span class="price">GRATIS</span></p>
+          <div class="benefitsPlan">
+            <ul class="planBenefitsList">
+              <li>publicación de productos</li>
+              <li>perfil basico con filtrado de productos</li>
+            </ul>
+          </div>
+          <button class="planButton basicButton">Continuar con plan gratuito</button>
+      </div>
+
+      <div class="crownContiner">
+        <img src="../Icons/corona-premium.png" alt="" class="crownPremium">
+        <div class="planContainer premium">
+          <form action="" method="post" class="formPremiumPlan">
+            <div class="planNameContainer">
+              <p class="planName premiumName">Premium </p>
+              <p class="subTextPlanName">(Plan Mejorado)</p>
+            </div>
+            <p class="pricePlan">$ <span class="price">20.00</span></p>
+            <div class="benefitsPlan">
+              <ul class="planBenefitsList">
+                <li>publicación de productos</li>
+                <li>perfil basico con filtrado de productos</li>
+                <li>Catalogos personalizados.</li>
+                <li>Registro de Pedidos</li>
+                <li>Registro de ventas</li>
+              </ul>
+            </div>
+            <button class="planButton premiumButton">
+              Obtener plan Premium
+              <img src="../Icons/cocodrilo-premium.png" alt="" class="cocoPremium">
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </section>
+</article>
+<div class="overlaySellModal hidden"></div>
+<script src="../Scripts/Script-plansModal.js"></script>
+<!---------------------------------------------------------------------------------------------------->
+
+</header>
   <main>
     <!-- <section class="resultTitleContainer">
         <h1 class="tit">

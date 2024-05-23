@@ -251,7 +251,6 @@ Antes del doctype vas a tener que abrir la consullta para las categorias
     z-index: 10;
     font-family: "Hammersmith One", sans-serif;
     display: flex;
-    flex-wrap: wrap;
 }
 .overlaySellModal{
     width: 100%;
@@ -264,8 +263,8 @@ Antes del doctype vas a tener que abrir la consullta para las categorias
 }
 .sellModalInformationContainer{
     width: 23vw;
-    height: 100%;
-    background-color: #07BF7D;
+    height: 83.3vh;
+    background-color: #009c63;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -275,6 +274,11 @@ Antes del doctype vas a tener que abrir la consullta para las categorias
 .titleModal{
     color: white;
     font-size: 4rem;
+}
+.infoModal{
+    text-align: center;
+    margin-top: 1vh;
+    color: white;
 }
 .sellModalPlansContainer{
     width: 47vw;
@@ -298,7 +302,6 @@ Antes del doctype vas a tener que abrir la consullta para las categorias
     width: 100%;
     height: 65vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 .planContainer{
@@ -340,7 +343,7 @@ Antes del doctype vas a tener que abrir la consullta para las categorias
 }
 .benefitsPlan{
     width: 100%;
-    height: 25vh;
+    height: 20vh;
     margin-top: 1vh;
     padding: 1vw;
 }

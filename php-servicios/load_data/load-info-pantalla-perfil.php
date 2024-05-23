@@ -51,19 +51,19 @@ if ($num_rows > 0) {
                 <li>
                     <form action="../Frames/Pantalla-Edit-info-producto.php" method="post">
                         <input type="hidden" name="id_product" value="<?php echo $row['ID_Producto']; ?>">
-                        <button type="submit">Editar</button>
+                        <button type="submit" class="optionButton">Editar</button>
                     </form>
                 </li>
                 <li>
                     <form action="../Frames/pantalla-producto.php" method="post">
                         <input type="hidden" name="id_product" value="<?php echo $row['ID_Producto']; ?>">
-                        <button type="submit">Ver producto</button>
+                        <button type="submit" class="optionButton">Ver producto</button>
                     </form>
                 </li>
                 <li>
                     <form action="../php-servicios/deletion_data/deletion_products.php" method="post">
                         <input type="hidden" name="id_product" value="<?php echo $row['ID_Producto']; ?>">
-                        <button type="submit">Eliminar</button>
+                        <button type="submit" class="optionButton">Eliminar</button>
                     </form>
                 </li>
             </ul>
